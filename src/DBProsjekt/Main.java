@@ -13,13 +13,10 @@ public class Main {
         // TODO code application logic here
 
         PersonCtrl testctrl = new PersonCtrl();
-        /*
-        testctrl.connect();
-        testctrl.regPerson("Daniel Day Lewis", 1990, "Prompeland");
-        */
         testctrl.getRoles("Morgan Freeman");
         testctrl.getRoles("Leonardo Dicaprio");
         testctrl.getRoles("Idris Elba");
+        testctrl.getMovies("Morgan Freeman");
 
     }
 
