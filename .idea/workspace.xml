@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="768796db-7901-4168-a7b0-72c58d9ad7f6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/DBProsjekt/Musikk.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DBProsjekt/Sjanger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBProsjekt/DBInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBProsjekt/DBInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBProsjekt/FilmCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBProsjekt/FilmCtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBProsjekt/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBProsjekt/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBProsjekt/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBProsjekt/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBProsjekt/PersonCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBProsjekt/PersonCtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBProsjekt/Selskap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBProsjekt/Selskap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
