@@ -13,6 +13,9 @@ public class Main {
         // TODO code application logic here
 
         PersonCtrl testctrl = new PersonCtrl();
+        FilmCtrl test = new FilmCtrl();
+
+
         testctrl.getRoles("Morgan Freeman");
         testctrl.getRoles("Leonardo Dicaprio");
         testctrl.getRoles("Idris Elba");

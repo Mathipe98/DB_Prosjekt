@@ -3,14 +3,25 @@
   <component name="ChangeListManager">
     <list default="true" id="768796db-7901-4168-a7b0-72c58d9ad7f6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBProsjekt/DBConn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBProsjekt/DBConn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DBProsjekt/DBInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBProsjekt/DBInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DBProsjekt/FilmCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBProsjekt/FilmCtrl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DBProsjekt/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBProsjekt/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DBProsjekt/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBProsjekt/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DBProsjekt/PersonCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBProsjekt/PersonCtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DBProsjekt/Selskap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBProsjekt/Selskap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -68,7 +79,9 @@
       <option name="presentableId" value="Default" />
       <updated>1583090986285</updated>
       <workItem from="1583090989562" duration="2449000" />
-      <workItem from="1583144856406" duration="5820000" />
+      <workItem from="1583144856406" duration="9078000" />
+      <workItem from="1583355603588" duration="2806000" />
+      <workItem from="1583401953910" duration="2435000" />
     </task>
     <servers />
   </component>
@@ -76,33 +89,41 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="446" y="51" key="#com.intellij.ide.util.MemberChooser" timestamp="1583403930289">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="446" y="51" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1583403930289" />
     <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1583091038306">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1583091038306" />
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1583177289456">
+    <state width="1237" height="56" key="GridCell.Tab.0.bottom" timestamp="1583270594027">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1583177289456" />
-    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1583177289456">
+    <state width="1237" height="56" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1583270594027" />
+    <state width="1237" height="56" key="GridCell.Tab.0.center" timestamp="1583270594027">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1583177289456" />
-    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1583177289456">
+    <state width="1237" height="56" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1583270594027" />
+    <state width="1237" height="56" key="GridCell.Tab.0.left" timestamp="1583270594027">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1583177289456" />
-    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1583177289456">
+    <state width="1237" height="56" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1583270594027" />
+    <state width="1237" height="56" key="GridCell.Tab.0.right" timestamp="1583270594027">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1583177289456" />
+    <state width="1237" height="56" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1583270594027" />
     <state x="121" y="0" key="SettingsEditor" timestamp="1583091039668">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1583091039668" />
-    <state x="337" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1583144918599">
+    <state x="337" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1583401954530">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="337" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1583144918599" />
+    <state x="337" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1583401954530" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1583403548180">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1583403548180" />
   </component>
 </project>

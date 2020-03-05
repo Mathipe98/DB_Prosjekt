@@ -6,13 +6,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersonCtrl extends DBConn {
+public class PersonCtrl extends DBConn{
     private PreparedStatement personStatement;
     private PreparedStatement fåUtRoller;
     private PreparedStatement fåUtFilmer;
-    private PreparedStatement regissørStatement;
-    private PreparedStatement skuespillerStatement;
-    private PreparedStatement forfatterStatement;
 
     public PersonCtrl() {
         this.connect(); /* her kobler vi objektet vi lager (altså this, dette PersonCtrl objektet)
@@ -36,6 +33,7 @@ public class PersonCtrl extends DBConn {
                     ("insert into Person values((?), (?), (?), (?))");
 
             //SQL insertion for ErRegissør
+            /*
             this.regissørStatement = conn.prepareStatement
                     ("insert into erregissør values ( (?), (?))");
 
@@ -46,6 +44,7 @@ public class PersonCtrl extends DBConn {
             //SQL insertion for ErForfatter
             this.forfatterStatement = conn.prepareStatement
                     ("insert into erforfatter values ( (?), (?))");
+             */
 
             /*SQL spørring for å få ut alle roller en skuespiller spiller som
             (denne printer også ut alle filmer) */
@@ -65,7 +64,8 @@ public class PersonCtrl extends DBConn {
         }
     }
 
-    public void regPerson(String navn, int fødselsår, String fødselsland) {
+
+    public void regPerson(Person p) {
         try {
 
             /*
@@ -84,23 +84,21 @@ public class PersonCtrl extends DBConn {
              Hvis vi da kaller metoden med regPerson("Morgan Freeman", 1937, "Shawshank Redemption"), da vil det se slik ut:
              insert into Person values(0, "Morgan Freeman", 1937, "Shawshank Redemption")
              */
-            personStatement.setInt(1, 0);
-            personStatement.setString(2, navn);
-            personStatement.setInt(3, fødselsår);
-            personStatement.setString(4, fødselsland);
+            personStatement.setInt(1, p.getPersonID());
+            personStatement.setString(2, p.getNavn());
+            personStatement.setInt(3, p.getFødselsår());
+            personStatement.setString(4, p.getFødselsland());
             personStatement.executeUpdate(); /*executeUpdate brukes når man skal oppdatere informasjon i en tabell
             executeQuery brukes når man har spørringer, i.e. select */
         }
         catch(SQLException s) {
             System.out.println("Error during insert into Person with navn = "
-            + navn + " , fødselsår = " + fødselsår + " , and fødselsland = " + fødselsland);
+            + p.getNavn() + " , fødselsår = " + p.getFødselsår() + " , and fødselsland = " + p.getFødselsland());
             s.printStackTrace();
         }
     }
 
-    public void regSkuespiller(String filmnavn, String skuespillernavn) {
 
-    }
 
     public List<String> getRoles(String skuespillerNavn) {
         try {
