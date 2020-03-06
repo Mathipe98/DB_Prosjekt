@@ -8,4 +8,12 @@ public class Sjanger {
         this.sjangerID  = sjangerID;
         this.navn = navn;
     }
+
+    public static int getSjangerID() {
+        return sjangerID;
+    }
+
+    public static String getNavn() {
+        return navn;
+    }
 }

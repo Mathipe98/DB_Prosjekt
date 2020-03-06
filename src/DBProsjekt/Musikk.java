@@ -11,4 +11,16 @@ public class Musikk {
         this.KomponistNavn = KomponistNavn;
         this.ArtistNavn = ArtistNavn;
     }
+
+    public static int getKomponistID() {
+        return KomponistID;
+    }
+
+    public static String getKomponistNavn() {
+        return KomponistNavn;
+    }
+
+    public static String getArtistNavn() {
+        return ArtistNavn;
+    }
 }

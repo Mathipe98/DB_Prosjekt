@@ -8,21 +8,22 @@ import java.util.List;
 
 public class PersonCtrl extends DBConn{
     private PreparedStatement personStatement;
-    private PreparedStatement fåUtRoller;
-    private PreparedStatement fåUtFilmer;
+    private PreparedStatement getRoles;
+    private PreparedStatement getMovies;
+    private PreparedStatement getPersons;
 
     public PersonCtrl() {
         this.connect(); /* her kobler vi objektet vi lager (altså this, dette PersonCtrl objektet)
         til databasen med en gang det opprettes */
 
-        this.startReg(); /* her oppretter vi med en gang spørringene/insertion statements ved oppretting av dette objektet */
+        this.Reg(); /* her oppretter vi med en gang spørringene/insertion statements ved oppretting av dette objektet */
     }
 
     /* Forklaring: java SQL implementasjon har noe som heter "PreparedStatement" objekter, og et slikt objekt er omtrent
     hva det høres ut som: du forbereder en allerede ferdigskrevet SQL spørring, hvor du etterlater visse verdier
     i spørringen som du kan sette inn senere. Der hvor du putter '(?)' kan du senere putte inn de verdiene du ønsker
      */
-    public void startReg() {
+    public void Reg() {
         try {
 
             /* Må bruke conn objektet (det har vi fra DBConn klassen, basically et objekt som er koblet til databasen)
@@ -48,14 +49,18 @@ public class PersonCtrl extends DBConn{
 
             /*SQL spørring for å få ut alle roller en skuespiller spiller som
             (denne printer også ut alle filmer) */
-            this.fåUtRoller = conn.prepareStatement
+            this.getRoles = conn.prepareStatement
                     ("select ErSkuespiller.Rolle, Film.Tittel from ErSkuespiller inner join Person on ErSkuespiller.PersonID = Person.PersonID AND Person.Navn = (?)" +
                             "inner join Film on Film.FilmID = ErSkuespiller.FilmID");
 
             //SQL spørring for å få ut alle filmer en skuespiller spiller i
-            this.fåUtFilmer = conn.prepareStatement(
+            this.getMovies = conn.prepareStatement(
                     "select Film.Tittel from Person inner join ErSkuespiller on Person.PersonID = ErSkuespiller.PersonID AND Person.Navn = (?) " +
                             "inner join Film on Film.FilmID = ErSkuespiller.FilmID"
+            );
+
+            this.getPersons = conn.prepareStatement(
+                    "select * from Person where Navn = (?) AND Fødselsår = (?)"
             );
 
         }
@@ -103,10 +108,10 @@ public class PersonCtrl extends DBConn{
     public List<String> getRoles(String skuespillerNavn) {
         try {
             /* Setter (?) = skuespillerNavn, slik at vi putter inn i fåUtRoller queryen den verdien som mangler */
-            fåUtRoller.setString(1, skuespillerNavn);
+            getRoles.setString(1, skuespillerNavn);
 
             /* Resultatene fra queryen blir satt til variabelen result */
-            ResultSet result = fåUtRoller.executeQuery();
+            ResultSet result = getRoles.executeQuery();
 
             /* Lager liste for å lagre informasjon fra query */
             List<String> roles = new ArrayList<>();
@@ -133,10 +138,10 @@ public class PersonCtrl extends DBConn{
     public List<String> getMovies(String skuespillernavn) {
         try {
             /* Setter inn strengen i fåUtFilmer query til skuespillernavn, altså (?)  = skuespillernavn */
-            fåUtFilmer.setString(1, skuespillernavn);
+            getMovies.setString(1, skuespillernavn);
 
             /* Variabelen results blir innholdet fra select query */
-            ResultSet results = fåUtFilmer.executeQuery();
+            ResultSet results = getMovies.executeQuery();
 
             /* Liste for å lagre informasjonen vi får ut fra query */
             List<String> roles = new ArrayList<>();
@@ -157,5 +162,18 @@ public class PersonCtrl extends DBConn{
             e.printStackTrace();
         }
         return null;
+    }
+
+    public boolean personExists(Person p) {
+        try {
+            getPersons.setString(1, p.getNavn()); //denne blir ikke instansiert når man sjekker
+            getPersons.setInt(2, p.getFødselsår());
+            //ResultSet temp = getPersons.executeQuery();
+            return getPersons.executeQuery().next();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return true;
+        }
     }
 }
