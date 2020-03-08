@@ -1,6 +1,8 @@
 package DBProsjekt;
 
-public class Selskap {
+import java.sql.PreparedStatement;
+
+public class Selskap extends DBConn{
 
     private final String URL;
     private final String adresse;
@@ -23,4 +25,5 @@ public class Selskap {
     public String getLand() {
         return land;
     }
+
 }

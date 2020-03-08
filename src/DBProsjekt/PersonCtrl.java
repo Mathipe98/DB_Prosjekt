@@ -166,14 +166,14 @@ public class PersonCtrl extends DBConn{
 
     public boolean personExists(Person p) {
         try {
-            getPersons.setString(1, p.getNavn()); //denne blir ikke instansiert når man sjekker
+            getPersons.setString(1, p.getNavn());
             getPersons.setInt(2, p.getFødselsår());
             //ResultSet temp = getPersons.executeQuery();
             return getPersons.executeQuery().next();
         }
         catch (Exception e) {
             e.printStackTrace();
-            return true;
+            return false;
         }
     }
 }

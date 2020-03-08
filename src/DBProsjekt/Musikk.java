@@ -1,26 +1,29 @@
 package DBProsjekt;
 
-public class Musikk {
+import java.sql.PreparedStatement;
 
-    public static int KomponistID;
-    public static String KomponistNavn;
-    public static String ArtistNavn;
+public class Musikk extends DBConn{
 
-    public Musikk(int KomponistID, String KomponistNavn, String ArtistNavn){
-        this.KomponistID = KomponistID;
-        this.KomponistNavn = KomponistNavn;
-        this.ArtistNavn = ArtistNavn;
+    private final int MusikkID;
+    private final String Komponist;
+    private final String Artist;
+
+    public Musikk(int MusikkID, String KomponistNavn, String ArtistNavn){
+        this.MusikkID = MusikkID;
+        this.Komponist = KomponistNavn;
+        this.Artist = ArtistNavn;
     }
 
-    public static int getKomponistID() {
-        return KomponistID;
+    public int getMusikkID() {
+        return MusikkID;
     }
 
-    public static String getKomponistNavn() {
-        return KomponistNavn;
+    public String getKomponist() {
+        return Komponist;
     }
 
-    public static String getArtistNavn() {
-        return ArtistNavn;
+    public String getArtist() {
+        return Artist;
     }
+
 }
