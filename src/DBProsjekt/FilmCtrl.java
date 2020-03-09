@@ -23,13 +23,6 @@ public class FilmCtrl extends PersonCtrl{
 
     public void startReg() {
         try {
-            String del1 = "select Sjanger.Navn from Selskap inner join ErSjanger on Sjanger.URL = ErSjanger.URL" +
-                    " inner join Film on ErSjanger.FilmID = Film.FilmID ";
-            String del2 = "inner join SjangerIFilm on Film.FilmID = SjangerIFilm.FilmID " +
-                    "inner join Sjanger on SjangerIFilm.FilmID = Sjanger.FilmID";
-            this.sjangre = conn.prepareStatement(
-                    del1 + del2
-            );
 
             this.settInnFilm = conn.prepareStatement(
                     "insert into Film values ((?), (?), (?), (?), (?), (?), (?), (?), (?), (?))"
