@@ -1,10 +1,14 @@
 package DBProsjekt;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SjangerCtrl extends DBConn {
 
+    private PreparedStatement fåUtSelskaper;
     private PreparedStatement fåUtFilmer;
     private PreparedStatement fåUtSjangre;
     private PreparedStatement sjangre;
@@ -15,6 +19,11 @@ public class SjangerCtrl extends DBConn {
 
     public void registerQueries() {
         try {
+
+            this.fåUtSelskaper = conn.prepareStatement(
+                    "select URL from Selskap"
+            );
+
             String del1 = "select Sjanger.Navn from Selskap as s inner join ErSjanger as ES on s.URL = ES.URL" +
                     " inner join Film as f on ES.FilmID = f.FilmID ";
             String del2 = "inner join SjangerIFilm as SIF on f.FilmID = SIF.FilmID " +
@@ -39,6 +48,23 @@ public class SjangerCtrl extends DBConn {
             System.out.printf("Something went wrong, fuck");
         }
     }
+
+
+    public List<String> URLerIDatabase () {
+        try {
+            List<String> templist = new ArrayList<>();
+            ResultSet results = fåUtSelskaper.executeQuery();
+            while (results.next()) {
+                templist.add(results.getString(1));
+            }
+            return templist;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
     public int filmerPerSelskap(Selskap s) {
         try {

@@ -3,7 +3,6 @@ package DBProsjekt;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class FilmCtrl extends PersonCtrl{
 
@@ -11,7 +10,7 @@ public class FilmCtrl extends PersonCtrl{
     private PreparedStatement settInnFilm;
     private PreparedStatement settInnSkuespiller;
     private PreparedStatement settInnForfatter;
-    private PreparedStatement settInnRegissør;
+    private PreparedStatement settInnRegissoor;
     private PreparedStatement settInnSjanger;
     private PreparedStatement settInnSelskap;
     private PreparedStatement settInnMusikk;
@@ -32,7 +31,7 @@ public class FilmCtrl extends PersonCtrl{
                     "insert into ErSkuespiller values ((?), (?), (?))"
             );
 
-            this.settInnRegissør = conn.prepareStatement(
+            this.settInnRegissoor = conn.prepareStatement(
                     "insert into ErRegissør values ((?), (?))"
             );
 
@@ -67,9 +66,9 @@ public class FilmCtrl extends PersonCtrl{
     }
 
     public void regFilm(
-            int FilmID, String tittel, boolean påVideo, boolean Streaming, boolean TV,
-            boolean Kino, int lengde, int utgivelsesår, String lanseringsdato, String beskrivelse,
-            List<Skuespiller> skuespillere, List<Person> regissører, List<Person> forfattere, List<Sjanger> sjangre,
+            int FilmID, String tittel, boolean paaVideo, boolean Streaming, boolean TV,
+            boolean Kino, int lengde, int utgivelsesaar, String lanseringsdato, String beskrivelse,
+            List<Skuespiller> skuespillere, List<Person> regissoorer, List<Person> forfattere, List<Sjanger> sjangre,
             List<Musikk> musikk, List<Selskap> selskap, List<Episode> episoder) {
         try {
             if (!checkDateFormat(lanseringsdato)) {
@@ -77,12 +76,12 @@ public class FilmCtrl extends PersonCtrl{
             }
             settInnFilm.setInt(1, FilmID);
             settInnFilm.setString(2, tittel);
-            settInnFilm.setBoolean(3, påVideo);
+            settInnFilm.setBoolean(3, paaVideo);
             settInnFilm.setBoolean(4, Streaming);
             settInnFilm.setBoolean(5, TV);
             settInnFilm.setBoolean(6, Kino);
             settInnFilm.setInt(7, lengde);
-            settInnFilm.setInt(8, utgivelsesår);
+            settInnFilm.setInt(8, utgivelsesaar);
             settInnFilm.setString(9, lanseringsdato);
             settInnFilm.setString(10, beskrivelse);
             settInnFilm.executeUpdate();
@@ -97,13 +96,13 @@ public class FilmCtrl extends PersonCtrl{
                 settInnSkuespiller.executeUpdate();
             }
 
-            for (Person p : regissører) {
+            for (Person p : regissoorer) {
                 if (!personExists(p)) {
                     regPerson(p);
                 }
-                settInnRegissør.setInt(1, p.getPersonID());
-                settInnRegissør.setInt(2, FilmID);
-                settInnRegissør.executeUpdate();
+                settInnRegissoor.setInt(1, p.getPersonID());
+                settInnRegissoor.setInt(2, FilmID);
+                settInnRegissoor.executeUpdate();
             }
 
             for (Person p : forfattere) {

@@ -5,8 +5,8 @@ public class Skuespiller extends Person {
     private final String rolle;
 
 
-    public Skuespiller(int personID, String Navn, int fødselsår, String fødselsland, String rolle) {
-        super(personID, Navn, fødselsår, fødselsland);
+    public Skuespiller(int personID, String Navn, int foodselsaar, String foodselsland, String rolle) {
+        super(personID, Navn, foodselsaar, foodselsland);
         this.rolle = rolle;
     }
 

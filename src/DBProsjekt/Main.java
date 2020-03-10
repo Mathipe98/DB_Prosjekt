@@ -30,7 +30,7 @@ public class Main {
         List<Musikk> musikk = new ArrayList<>();
         List<Selskap> selskaper = new ArrayList<>();
         List<Sjanger> sjangre = new ArrayList<>();
-        List<Bruker> brukere = new ArrayList();
+        List<Bruker> brukere = new ArrayList<>();
         List<Episode> episoder = new ArrayList<>();
         skuespillere.add(s1);
         people.add(s1);

@@ -91,14 +91,14 @@ public class PersonCtrl extends DBConn{
              */
             personStatement.setInt(1, p.getPersonID());
             personStatement.setString(2, p.getNavn());
-            personStatement.setInt(3, p.getFødselsår());
-            personStatement.setString(4, p.getFødselsland());
+            personStatement.setInt(3, p.getFoodselsaar());
+            personStatement.setString(4, p.getFoodselsland());
             personStatement.executeUpdate(); /*executeUpdate brukes når man skal oppdatere informasjon i en tabell
             executeQuery brukes når man har spørringer, i.e. select */
         }
         catch(SQLException s) {
             System.out.println("Error during insert into Person with navn = "
-            + p.getNavn() + " , fødselsår = " + p.getFødselsår() + " , and fødselsland = " + p.getFødselsland());
+            + p.getNavn() + " , fødselsår = " + p.getFoodselsaar() + " , and fødselsland = " + p.getFoodselsland());
             s.printStackTrace();
         }
     }
@@ -167,7 +167,7 @@ public class PersonCtrl extends DBConn{
     public boolean personExists(Person p) {
         try {
             getPersons.setString(1, p.getNavn());
-            getPersons.setInt(2, p.getFødselsår());
+            getPersons.setInt(2, p.getFoodselsaar());
             //ResultSet temp = getPersons.executeQuery();
             return getPersons.executeQuery().next();
         }
