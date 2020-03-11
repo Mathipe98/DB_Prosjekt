@@ -1,7 +1,5 @@
 package DBProsjekt;
 
-import java.sql.PreparedStatement;
-
 public class Bruker {
 
     private final String brukernavn;
