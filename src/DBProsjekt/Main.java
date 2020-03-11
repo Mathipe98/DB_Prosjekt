@@ -4,6 +4,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  *
@@ -17,14 +18,16 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
 
+
+
         FilmCtrl test = new FilmCtrl();
 
-        Skuespiller s1 = new Skuespiller(5, "Morgan Freeman", 1937, "USA", "Ellis 'Red' Redding");
-        Musikk m1 = new Musikk(1, "John Williams", "Orchestra");
-        Selskap selskap1 = new Selskap("www.warnerbros.com/", "4000 Warner Boulevard Burbank", "USA");
-        Sjanger sjanger1 = new Sjanger(1, "Crime");
-        Bruker b1 = new Bruker("CoffeeDrinker69");
-        Episode e1 = new Episode(1, "Cool episode");
+        Skuespiller s1 = new Skuespiller();
+        Musikk m1 = new Musikk();
+        Selskap selskap1 = new Selskap();
+        Sjanger sjanger1 = new Sjanger();
+        Bruker b1 = new Bruker();
+        Episode e1 = new Episode();
         List<Skuespiller> skuespillere = new ArrayList<>();
         List<Person> people = new ArrayList<>();
         List<Musikk> musikk = new ArrayList<>();
@@ -41,7 +44,7 @@ public class Main {
         episoder.add(e1);
 
 
-        test.regFilm(4, "Shawshank Redemption", true, true, true, true, 142, 1995, "1995-06-01", "En dømt forbryter prøver å forlate fengselet",
+        test.regFilm(
                 skuespillere, people, people, sjangre, musikk, selskaper, episoder);
 
 

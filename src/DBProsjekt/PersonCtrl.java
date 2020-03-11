@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class PersonCtrl extends DBConn{
     private PreparedStatement personStatement;
@@ -105,8 +106,14 @@ public class PersonCtrl extends DBConn{
 
 
 
-    public List<String> getRoles(String skuespillerNavn) {
+    public List<String> getRoles() {
         try {
+
+            Scanner s1 = new Scanner(System.in);
+            System.out.println("Hva er navnet på skuespilleren du ønsker å vite rollene til?");
+            String skuespillerNavn = s1.nextLine();
+
+
             /* Setter (?) = skuespillerNavn, slik at vi putter inn i fåUtRoller queryen den verdien som mangler */
             getRoles.setString(1, skuespillerNavn);
 
@@ -135,8 +142,13 @@ public class PersonCtrl extends DBConn{
         return null;
     }
 
-    public List<String> getMovies(String skuespillernavn) {
+    public List<String> getMovies() {
         try {
+
+            Scanner s1 = new Scanner(System.in);
+            System.out.println("Hva er navnet på skuespilleren du ønsker å vite rollene til?");
+            String skuespillernavn = s1.nextLine();
+
             /* Setter inn strengen i fåUtFilmer query til skuespillernavn, altså (?)  = skuespillernavn */
             getMovies.setString(1, skuespillernavn);
 

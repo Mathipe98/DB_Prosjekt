@@ -3,6 +3,7 @@ package DBProsjekt;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Scanner;
 
 public class FilmCtrl extends PersonCtrl{
 
@@ -65,12 +66,70 @@ public class FilmCtrl extends PersonCtrl{
         return false;
     }
 
-    public void regFilm(
-            int FilmID, String tittel, boolean paaVideo, boolean Streaming, boolean TV,
-            boolean Kino, int lengde, int utgivelsesaar, String lanseringsdato, String beskrivelse,
-            List<Skuespiller> skuespillere, List<Person> regissoorer, List<Person> forfattere, List<Sjanger> sjangre,
+    public void regFilm(List<Skuespiller> skuespillere, List<Person> regissoorer, List<Person> forfattere, List<Sjanger> sjangre,
             List<Musikk> musikk, List<Selskap> selskap, List<Episode> episoder) {
         try {
+            Scanner s1 = new Scanner(System.in);
+            System.out.println("Skriv inn FilmID");
+            String ID = s1.nextLine();
+            int FilmID = Integer.parseInt(ID);
+
+            Scanner s2 = new Scanner(System.in);
+            System.out.println("Skriv inn tittel på filmen");
+            String tittel = s2.nextLine();
+
+            Scanner s3 = new Scanner(System.in);
+            System.out.println("Er filmen på video? (Y/N)");
+            String video = s3.nextLine();
+            if(video.equals("Y")){
+                boolean paaVideo = true;
+            } else if (video.equals("N")) {
+                boolean paaVideo = false;
+            }
+            Scanner s4 = new Scanner(System.in);
+            System.out.println("Kan filmen  streames? (Y/N)");
+            String stream = s4.nextLine();
+            if(stream.equals("Y")){
+                boolean Streaming = true;
+            } else if (stream.equals("N")) {
+                boolean Streaming = false;
+            }
+            Scanner s5 = new Scanner(System.in);
+            System.out.println("Er filmen på TVn? (Y/N)");
+            String tv = s5.nextLine();
+            if(tv.equals("Y")){
+                boolean TV = true;
+            } else if (tv.equals("N")) {
+                boolean TV = false;
+            }
+            Scanner s6 = new Scanner(System.in);
+            System.out.println("Er filmen på kino? (Y/N)");
+            String kino = s6.nextLine();
+            if(kino.equals("Y")){
+                boolean Kino = true;
+            } else if (kino.equals("N")) {
+                boolean Kino = false;
+            }
+            Scanner s7 = new Scanner(System.in);
+            System.out.println("Hva er lengden på filmen?");
+            String ID = s7.nextLine();
+            int lengde = Integer.parseInt(ID);
+
+            Scanner s8 = new Scanner(System.in);
+            System.out.println("Skriv inn utgivelsesår");
+            String ID = s8.nextLine();
+            int utgivelsesaar = Integer.parseInt(ID);
+
+            Scanner s9 = new Scanner(System.in);
+            System.out.println("Skriv inn lanseringsdato");
+            String lanseringsdato = s2.nextLine();
+
+            Scanner s10 = new Scanner(System.in);
+            System.out.println("Skriv inn beskrivelse av filmen");
+            String beskrivelse = s10.nextLine();
+            }
+
+
             if (!checkDateFormat(lanseringsdato)) {
                 throw new IllegalArgumentException("The date must be in format: YYYY-MM-DD");
             }
