@@ -43,9 +43,21 @@ public class Main {
         brukere.add(b1);
         episoder.add(e1);
 
+<<<<<<< HEAD
 
         test.regFilm(
                 skuespillere, people, people, sjangre, musikk, selskaper, episoder);
+=======
+        /*
+        test.regFilm(4, "Shawshank Redemption", true, true, true, true, 142, 1995, "1995-06-01", "En dømt forbryter prøver å forlate fengselet",
+                skuespillere, people, people, sjangre, musikk, selskaper, episoder); */
+
+        AnmeldelseCtrl testing = new AnmeldelseCtrl();
+
+        Bruker brukertesting = new Bruker("xX_lillepia69_Xx");
+
+        testing.registrerAnmeldelse(brukertesting, 4, "This movie fucking sucks", 9, 2);
+>>>>>>> 0e9b4bff971677b2721eff0237a029a6d6b5c30a
 
 
 

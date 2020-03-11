@@ -1,8 +1,11 @@
 package DBProsjekt;
 
+<<<<<<< HEAD
 import java.sql.PreparedStatement;
 import java.util.Scanner;
 
+=======
+>>>>>>> 0e9b4bff971677b2721eff0237a029a6d6b5c30a
 public class Bruker {
 
     private final String brukernavn;

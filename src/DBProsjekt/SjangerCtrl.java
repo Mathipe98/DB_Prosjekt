@@ -38,9 +38,9 @@ public class SjangerCtrl extends DBConn {
             );
 
             this.fåUtSjangre = conn.prepareStatement(
-                    "select count(*) from Film f inner join SjangerIFilm SIF on f.FilmID = SIF.FilmID "
+                    "select count(*), Navn from Film f inner join SjangerIFilm SIF on f.FilmID = SIF.FilmID "
                     + "inner join Sjanger s on SIF.SjangerID = s.SjangerID" +
-                            "AND s.Navn = (?) AND f.Tittel = (?)"
+                            " AND f.Tittel = (?)"
             );
         }
         catch (SQLException e) {
@@ -77,5 +77,9 @@ public class SjangerCtrl extends DBConn {
             return 0;
         }
     }
+
+    //public int countSjanger(
+
+    //public void mainSjangerMethod(List<>)
 
 }
