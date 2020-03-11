@@ -66,68 +66,52 @@ public class FilmCtrl extends PersonCtrl{
         return false;
     }
 
-    public void regFilm(List<Skuespiller> skuespillere, List<Person> regissoorer, List<Person> forfattere, List<Sjanger> sjangre,
-            List<Musikk> musikk, List<Selskap> selskap, List<Episode> episoder) {
+    public void regFilm() {
         try {
+
             Scanner s1 = new Scanner(System.in);
             System.out.println("Skriv inn FilmID");
             String ID = s1.nextLine();
             int FilmID = Integer.parseInt(ID);
 
-            Scanner s2 = new Scanner(System.in);
+
             System.out.println("Skriv inn tittel på filmen");
-            String tittel = s2.nextLine();
+            String tittel = s1.nextLine();
 
-            Scanner s3 = new Scanner(System.in);
+
             System.out.println("Er filmen på video? (Y/N)");
-            String video = s3.nextLine();
-            if(video.equals("Y")){
-                boolean paaVideo = true;
-            } else if (video.equals("N")) {
-                boolean paaVideo = false;
-            }
-            Scanner s4 = new Scanner(System.in);
+            boolean paaVideo = checkYesNo();
+
+
             System.out.println("Kan filmen  streames? (Y/N)");
-            String stream = s4.nextLine();
-            if(stream.equals("Y")){
-                boolean Streaming = true;
-            } else if (stream.equals("N")) {
-                boolean Streaming = false;
-            }
-            Scanner s5 = new Scanner(System.in);
+            boolean Streaming = checkYesNo();
+
+
             System.out.println("Er filmen på TVn? (Y/N)");
-            String tv = s5.nextLine();
-            if(tv.equals("Y")){
-                boolean TV = true;
-            } else if (tv.equals("N")) {
-                boolean TV = false;
-            }
-            Scanner s6 = new Scanner(System.in);
+            boolean TV = checkYesNo();
+
+
             System.out.println("Er filmen på kino? (Y/N)");
-            String kino = s6.nextLine();
-            if(kino.equals("Y")){
-                boolean Kino = true;
-            } else if (kino.equals("N")) {
-                boolean Kino = false;
-            }
-            Scanner s7 = new Scanner(System.in);
+            boolean Kino = checkYesNo();
+
+
             System.out.println("Hva er lengden på filmen?");
-            String ID = s7.nextLine();
-            int lengde = Integer.parseInt(ID);
+            String temp = s1.nextLine();
+            int lengde = Integer.parseInt(temp);
 
-            Scanner s8 = new Scanner(System.in);
+
             System.out.println("Skriv inn utgivelsesår");
-            String ID = s8.nextLine();
-            int utgivelsesaar = Integer.parseInt(ID);
+            String temp1 = s1.nextLine();
+            int utgivelsesaar = Integer.parseInt(temp1);
 
-            Scanner s9 = new Scanner(System.in);
+
             System.out.println("Skriv inn lanseringsdato");
-            String lanseringsdato = s2.nextLine();
+            String lanseringsdato = s1.nextLine();
 
-            Scanner s10 = new Scanner(System.in);
+
             System.out.println("Skriv inn beskrivelse av filmen");
-            String beskrivelse = s10.nextLine();
-            }
+            String beskrivelse = s1.nextLine();
+
 
 
             if (!checkDateFormat(lanseringsdato)) {
@@ -145,7 +129,10 @@ public class FilmCtrl extends PersonCtrl{
             settInnFilm.setString(10, beskrivelse);
             settInnFilm.executeUpdate();
 
-            for (Skuespiller p : skuespillere) {
+            System.out.println("Hvor mange skuespillere er det i filmen?");
+            int iterate = Integer.parseInt(s1.nextLine());
+            for (int i = 0; i < iterate; i++) {
+                Skuespiller p = new Skuespiller();
                 if (!personExists(p)) {
                     regPerson(p);
                 }
@@ -155,7 +142,10 @@ public class FilmCtrl extends PersonCtrl{
                 settInnSkuespiller.executeUpdate();
             }
 
-            for (Person p : regissoorer) {
+            System.out.println("Hvor mange regissører er med i filmen?");
+            int iterate1 = Integer.parseInt(s1.nextLine());
+            for (int i = 0; i < iterate1; i++) {
+                Person p = new Person();
                 if (!personExists(p)) {
                     regPerson(p);
                 }
@@ -164,7 +154,10 @@ public class FilmCtrl extends PersonCtrl{
                 settInnRegissoor.executeUpdate();
             }
 
-            for (Person p : forfattere) {
+            System.out.println("Hvor mange forfattere er med i filmen?");
+            int iterate2 = Integer.parseInt(s1.nextLine());
+            for (int i = 0; i < iterate2; i++) {
+                Person p = new Person();
                 if (!personExists(p)) {
                     regPerson(p);
                 }
@@ -173,16 +166,22 @@ public class FilmCtrl extends PersonCtrl{
                 settInnForfatter.executeUpdate();
             }
 
-            for (Sjanger s : sjangre) {
-                if (!sjangerExists(s)) {
-                    regSjanger(s);
+            System.out.println("Hvor mange sjangre har denne filmen?");
+            int iterate3 = Integer.parseInt(s1.nextLine());
+            for (int i = 0; i < iterate3; i++) {
+                Sjanger sjanger = new Sjanger();
+                if (!sjangerExists(sjanger)) {
+                    regSjanger(sjanger);
                 }
-                settInnSjanger.setInt(1, s.getSjangerID());
+                settInnSjanger.setInt(1, sjanger.getSjangerID());
                 settInnSjanger.setInt(2, FilmID);
                 settInnSjanger.executeUpdate();
             }
 
-            for (Selskap s : selskap) {
+            System.out.println("Hvor mange selskaper har produsert denne filmen?");
+            int iterate4 = Integer.parseInt(s1.nextLine());
+            for (int i = 0; i < iterate4; i++) {
+                Selskap s = new Selskap();
                 if (!selskapExists(s)) {
                     regSelskap(s);
                 }
@@ -191,7 +190,10 @@ public class FilmCtrl extends PersonCtrl{
                 settInnSelskap.executeUpdate();
             }
 
-            for (Musikk m : musikk) {
+            System.out.println("Hvor mange forskjellige musikkstykker er med i filmen?");
+            int iterate5 = Integer.parseInt(s1.nextLine());
+            for (int i = 0; i < iterate5; i++) {
+                Musikk m = new Musikk();
                 if (!musicExists(m)) {
                     regMusikk(m);
                 }
@@ -200,19 +202,23 @@ public class FilmCtrl extends PersonCtrl{
                 settInnMusikk.executeUpdate();
             }
 
-            PreparedStatement temp1 = conn.prepareStatement("insert into Episode values ((?), (?), (?))");
-            PreparedStatement temp2 = conn.prepareStatement("insert into EpisodeIFilm values ((?), (?))");
+            PreparedStatement tempStatement = conn.prepareStatement("insert into Episode values ((?), (?), (?))");
+            PreparedStatement tempStatement2 = conn.prepareStatement("insert into EpisodeIFilm values ((?), (?))");
 
-            for (Episode e : episoder) {
-                temp1.setInt(1, e.getEpisodeNummer());
-                temp1.setString(2, e.getEpisodeNavn());
-                temp1.setInt(3, FilmID);
-                temp2.setInt(1, e.getEpisodeNummer());
-                temp2.setInt(2, FilmID);
-                temp1.executeUpdate();
-                temp2.executeUpdate();
+            System.out.println("Er dette en serie, og hvis så, hvor mange episoder er det? Skriv 0 hvis det ikke er noen episoder");
+            int iterate6 = Integer.parseInt(s1.nextLine());
+            if (iterate6 >= 1) {
+                for (int i = 0; i < iterate6; i++) {
+                    Episode e = new Episode();
+                    tempStatement.setInt(1, e.getEpisodeNummer());
+                    tempStatement.setString(2, e.getEpisodeNavn());
+                    tempStatement.setInt(3, FilmID);
+                    tempStatement2.setInt(1, e.getEpisodeNummer());
+                    tempStatement2.setInt(2, FilmID);
+                    tempStatement.executeUpdate();
+                    tempStatement2.executeUpdate();
+                }
             }
-
 
         }
         catch (SQLException e) {
@@ -335,6 +341,20 @@ public class FilmCtrl extends PersonCtrl{
         catch (Exception e) {
             System.out.println("Error when inserting Musikk");
             e.printStackTrace();
+        }
+    }
+
+    public boolean checkYesNo() {
+        Scanner s = new Scanner(System.in);
+        String temp = s.nextLine();
+        if(temp.equals("Y")){
+            return true;
+        } else if (temp.equals("N")) {
+            return false;
+        }
+        else {
+            System.out.println("Du må skrive inn enten Y eller N:");
+            return checkYesNo();
         }
     }
 

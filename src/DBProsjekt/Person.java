@@ -11,26 +11,25 @@ public class Person {
     private String foodselsland;
 
     public Person() {
-        Scanner s4 = new Scanner(System.in);
+        Scanner s = new Scanner(System.in);
+
         System.out.println("Skriv inn PersonID");
-        String ID = s4.nextLine();
+        String ID = s.nextLine();
         int personID = Integer.parseInt(ID);
 
-        Scanner s2 = new Scanner(System.in);
         System.out.println("Skriv inn fødselsår");
-        String input = s2.nextLine();
+        String input = s.nextLine();
         int foodselsaar = Integer.parseInt(input);
 
         if (personID < 0 || foodselsaar < 1900) {
             throw new IllegalArgumentException();
         }
-        Scanner s1 = new Scanner(System.in);
-        System.out.println("Skriv inn navn på personen");
-        String Navn = s1.nextLine();
 
-        Scanner s3 = new Scanner(System.in);
+        System.out.println("Skriv inn navn på personen");
+        String Navn = s.nextLine();
+
         System.out.println("Skriv inn fødselsland");
-        String foodselsland = s3.nextLine();
+        String foodselsland = s.nextLine();
 
 
 
